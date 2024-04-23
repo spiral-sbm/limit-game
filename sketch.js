@@ -50,21 +50,21 @@ function draw() {
   
   if (TELA === MENU) {
     text("Essa é a tela de menu", 100, 100);
+    
   }   if (TELA === CREDITS) {
     text("Essa é a tela de créditos", 100, 100);
+      fill('green');
+      rect (200, 280, 200, 200);
   }
 }
 function mouseClicked() {
   
   // Verificador de click em botões.
   
- if (mouseX >= 160 && mouseX <= 240 && mouseY >= 265 && mouseY <= 295) {
+  if (mouseX >= 160 && mouseX <= 240 && mouseY >= 265 && mouseY <= 295) {
     console.log("Você clicou!")
+    if (TELA === MENU) {
+      TELA = CREDITS;   // Verificador de teals.
+    }
   }
-  
-  // Verificador de teals.
-  
-  if (){
-      
-      }
 }
