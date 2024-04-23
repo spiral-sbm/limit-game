@@ -1,11 +1,16 @@
 //Criando o menu do jogo, parte 01
 
-const MENU = 'menu';
+const MENU = 'menu'; // Telas do jogo.
+const GAME = 'game';
+const CONTROLS = 'controls';
 const CREDITS = 'credits';
+
 var TELA = MENU;
+let img;
 
 function setup() {
   createCanvas(400, 400);
+  img = loadImage('samuel.webp');
 }
 
 function draw() {
@@ -54,7 +59,7 @@ function draw() {
   }   if (TELA === CREDITS) {
     text("Essa é a tela de créditos", 100, 100);
       fill('green');
-      rect (200, 280, 200, 200);
+      rect (200, 200, 300, 250);
   }
 }
 function mouseClicked() {
