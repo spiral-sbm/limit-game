@@ -34,13 +34,6 @@ function draw() {
 
   // Botões.
 
-  noFill();
-  stroke(0);
-  push();
-  translate(500, height * 0.35, -200);
-  sphere(300);
-  pop();
-
   fill("black");
   rect(0, 0, 150, 30);
   rect(0, 50, 150, 30);
@@ -111,7 +104,7 @@ function draw() {
     textSize(20);
     text("An empty bliss beyond this game.", -230, -50);
     fill("black");
-    text("CONTROsbmLES!?", -85, 55);
+    text("CONTROLES!?", -85, 55);
 
     noStroke();
     fill(50);
