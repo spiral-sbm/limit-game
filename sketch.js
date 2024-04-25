@@ -29,30 +29,30 @@ function draw() {
   // Botões.
 
   fill("blue");
-  rect(200, 200, 100, 30);
+  rect(320, 200, 300, 30);
 
   fill("yellow");
-  rect(200, 240, 100, 30);
+  rect(320, 240, 300, 30);
 
   fill("black");
   text(debugText, 10, 20);
 
   fill("green");
-  rect(200, 280, 80, 30);
+  rect(320, 280, 300, 30);
 
   // Verificador de botões.
 
-  if (mouseX >= 150 && mouseX <= 250 && mouseY >= 185 && mouseY <= 215) {
-    fill("yellow");
-    rect(200, 200, 100, 30);
+  if (mouseX >= 150 && mouseX <= 470 && mouseY >= 185 && mouseY <= 215) {
+    fill('white');
+    rect(320, 200, 300, 30);
   }
-  if (mouseX >= 150 && mouseX <= 250 && mouseY >= 225 && mouseY <= 255) {
-    fill("blue");
-    rect(200, 240, 100, 30);
+  if (mouseX >= 150 && mouseX <= 470 && mouseY >= 225 && mouseY <= 255) {
+    fill('white');
+    rect(320, 240, 300, 30);
   }
-  if (mouseX >= 160 && mouseX <= 240 && mouseY >= 265 && mouseY <= 295) {
-    fill("blue");
-    rect(200, 280, 80, 30);
+  if (mouseX >= 160 && mouseX <= 470 && mouseY >= 265 && mouseY <= 295) {
+    fill('white');
+    rect(320, 280, 300, 30);
   }
 
   // Verificador de telas.
@@ -71,7 +71,7 @@ function draw() {
 function mouseClicked() {
   // Verificador de click em botões.
 
-  if (mouseX >= 160 && mouseX <= 240 && mouseY >= 265 && mouseY <= 295) {
+  if (mouseX >= 160 && mouseX <= 470 && mouseY >= 265 && mouseY <= 295) {
     console.log("Você clicou!");
     if (TELA === MENU) {
       TELA = CREDITS; // Verificador de telas.
