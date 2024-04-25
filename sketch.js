@@ -165,8 +165,8 @@ function draw() {
       320,
       450
     );
-    textSize(25);
-    text("Programador", -260, 120);
+    textSize(20);
+    text("felipe.sbm@icloud.com", -280, 120);
     rect(-155, 170, 250, 60);
     fill('white');
     text("VOLTAR!", -225, 180);
