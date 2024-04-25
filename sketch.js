@@ -62,9 +62,10 @@ function draw() {
   }
   if (TELA === CREDITS) {
     text("Essa é a tela de créditos", 100, 100);
-    fill("green");
+    fill("gray");
     rect(200, 200, 300, 250);
     image(img, 170, 135, 50, 50);
+    text("Felipe SBM");
   }
 }
 function mouseClicked() {
