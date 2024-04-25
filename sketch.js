@@ -22,37 +22,37 @@ function draw() {
   rectMode(CENTER);
 
   // Posição do mouse na tela (debug).
-
+  fill('white')
   let debugText = "X: " + mouseX + "\nY: " + mouseY;
-  background(500);
+  background(5);
 
   // Botões.
 
   fill("blue");
-  rect(320, 200, 300, 30);
+  rect(320, 220, 300, 30);
 
   fill("yellow");
-  rect(320, 240, 300, 30);
+  rect(320, 260, 300, 30);
 
   fill("black");
   text(debugText, 10, 20);
 
   fill("green");
-  rect(320, 280, 300, 30);
+  rect(320, 300, 300, 30);
 
   // Verificador de botões.
 
-  if (mouseX >= 150 && mouseX <= 470 && mouseY >= 185 && mouseY <= 215) {
+  if (mouseX >= 150 && mouseX <= 470 && mouseY >= 205 && mouseY <= 235) {
     fill('white');
-    rect(320, 200, 300, 30);
+    rect(320, 220, 300, 30);
   }
-  if (mouseX >= 150 && mouseX <= 470 && mouseY >= 225 && mouseY <= 255) {
+  if (mouseX >= 150 && mouseX <= 470 && mouseY >= 245 && mouseY <= 275) {
     fill('white');
-    rect(320, 240, 300, 30);
+    rect(320, 260, 300, 30);
   }
-  if (mouseX >= 160 && mouseX <= 470 && mouseY >= 265 && mouseY <= 295) {
+  if (mouseX >= 160 && mouseX <= 470 && mouseY >= 285 && mouseY <= 315) {
     fill('white');
-    rect(320, 280, 300, 30);
+    rect(320, 300, 300, 30);
   }
 
   // Verificador de telas.
