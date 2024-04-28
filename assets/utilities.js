@@ -15,7 +15,8 @@ function drawButton(X, Y, W, H, color) {
   pop();
 }
 
-function mouseOver(X, Y, W, H, onHover, outHover) {
+function mouseHover(X, Y, W, H, onHover, outHover) {
+  // O mouseHover não está funcionando, testei vários metodos, mas não adiantou.
   if (
     mouseX >= X - W / 2 &&
     mouseX <= X + W / 2 &&

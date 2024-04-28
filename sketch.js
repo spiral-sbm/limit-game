@@ -10,7 +10,7 @@ let img;
 let img2;
 let sbm;
 let myFont;
-let BG = 5;
+let BG = 500;
 
 function preload() {
   myFont = loadFont("public/Rock3D-Regular.ttf");
@@ -25,55 +25,20 @@ function setup() {
 }
 
 function draw() {
-  // Posição dos elementos centralizada.
-
   rectMode(CENTER);
   textFont(myFont);
-
-  // Posição do mouse na tela (debug).
-  fill("white");
-  background(500);
+  background(BG);
 
   if (TELA === MENU) {
     drawMenu();
-  } if (TELA === GAME) {
-    drawGame();
-  } if (TELA === CONTROLS) {
-    drawControls();
-  } else if ( TELA === CREDITS) {
-    drawCredits();
   }
-
-  // Verificador de botões.
-  if (
-    mouseX >= 245 &&
-    mouseX <= 393 &&
-    mouseY >= 325 &&
-    mouseY <= 355 &&
-    TELA !== CREDITS &&
-    TELA !== CONTROLS &&
-    TELA !== GAME
-  ) {
-    background(5);
-    fill("white");
-    rect(0, 100, 200, 30);
-    textSize(50);
-    text("Limit.", -90, -75);
-    textSize(20);
-    text("An empty bliss beyond this game.", -230, -50);
-    fill("black");
-    text("CREDITOS!?", -75, 105);
-    
-    // A pedra com fósforo (An Empty Bliss Beyond This World).
-    
-    push();
-    translate(-75, -50, -250);
-    rotateZ(frameCount * 0.0005);
-    rotateX(frameCount * 0.0005);
-    rotateY(frameCount * 0.0005);
-    texture(img2);
-    box(300);
-    pop();
+  if (TELA === GAME) {
+    drawGame();
+  }
+  if (TELA === CONTROLS) {
+    drawControls();
+  } else if (TELA === CREDITS) {
+    drawCredits();
   }
 }
 
