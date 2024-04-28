@@ -1,9 +1,13 @@
 function drawControls() {
-    background(5);
-    fill('white')
-    text("Only Jesus is no controle, se vira.", -230, 0);
+  background(BG - 5);
+  image(mouse, -320, -185, 200, 200);
+  image(telefone, -400, 40, 300, 200);
+
+  let debugText = "X: " + mouseX + "\nY: " + mouseY;
+  fill("white");
+  text(debugText, 0, 0);
+  text("Mouse", -250, -200);
+  text("Telefone", -282, 30);
 }
 
-function onControlsClick() {
-  
-}
+function onControlsClick() {}
