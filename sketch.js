@@ -6,9 +6,13 @@ const CONTROLS = "controls";
 const CREDITS = "credits";
 
 var TELA = MENU;
+
 let img;
 let img2;
 let sbm;
+let mouse;
+let telefone;
+
 let myFont;
 let BG = 500;
 
@@ -19,9 +23,12 @@ function preload() {
 function setup() {
   createCanvas(640, 480, WEBGL);
   textFont(myFont);
+
   img = loadImage("public/AEBBTW.webp");
-  sbm = loadImage("public/samuel.webp");
   img2 = loadImage("public/AEBBTW2.webp");
+  sbm = loadImage("public/samuel.webp");
+  mouse = loadImage("public/mouse.webp");
+  telefone = loadImage("public/telefone.webp");
 }
 
 function draw() {
