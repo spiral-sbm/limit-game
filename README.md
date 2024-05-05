@@ -55,3 +55,16 @@ Step four (optional):
 ```sh
 If you have VsCode, install the Live Preview extension
 ```
+# Development guide (in brazilian portuguese):
+
+#### Creation of the menu:
+
+[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)](https://jealous-amusement-696.notion.site/Roteiro-2-dcd263a78dcb482986e896eec9516aa3) 🌀
+
+#### Creation of the mechanics
+
+[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)](https://jealous-amusement-696.notion.site/Roteiro-2-49acb915769d4e4f84be578097405c94) 👍
+
+#### Creation of the design:
+
+[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)](https://jealous-amusement-696.notion.site/Roteiro-3-e00cc044e0c34e2ebe51122b39faae98) 🫠
