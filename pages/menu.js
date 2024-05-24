@@ -1,22 +1,22 @@
 function drawMenu() {
   BG = 5;
-  background(BG * 100);
-  drawButton(0, 0, 150, 30, "black");
-  drawButton(0, 50, 150, 30, "black");
-  drawButton(0, 100, 150, 30, "black");
-
-  fill("black");
+  background(BG*100);
+  drawButton(0, 0, 150, 30, 'black');
+  drawButton(0, 50, 150, 30, 'black');
+  drawButton(0, 100, 150, 30, 'black');
+  
+  fill('black')
   textSize(20);
   textSize(50);
   text("Limit.", -90, -75);
   textSize(20);
   text("An empty bliss beyond this game.", -230, -50);
 
-  fill("white");
+  fill('white');
   text("Jogar", -35, 5);
   text("Controles", -53, 55);
   text("Creditos", -48, 105);
-
+  
   if (
     mouseX >= 245 &&
     mouseX <= 393 &&
@@ -69,7 +69,7 @@ function drawMenu() {
     text("An empty bliss beyond this game.", -230, -50);
     fill("black");
     text("CONTROLES!?", -85, 55);
-
+    
     // Quadrados 3D.
 
     noStroke();
@@ -80,7 +80,7 @@ function drawMenu() {
     rotateX(-15);
     box(150);
     pop();
-
+    
     noStroke();
     fill(50);
     push();
@@ -89,7 +89,7 @@ function drawMenu() {
     rotateX(-0.9);
     box(100);
     pop();
-
+    
     noStroke();
     fill(25);
     push();
@@ -99,7 +99,7 @@ function drawMenu() {
     box(50);
     pop();
   }
-  if (
+    if (
     mouseX >= 245 &&
     mouseX <= 393 &&
     mouseY >= 325 &&
@@ -117,9 +117,9 @@ function drawMenu() {
     text("An empty bliss beyond this game.", -230, -50);
     fill("black");
     text("CREDITOS!?", -75, 105);
-
+    
     // A pedra com fósforo (An Empty Bliss Beyond This World).
-
+    
     push();
     translate(-75, -50, -250);
     rotateZ(frameCount * 0.0005);
@@ -133,8 +133,8 @@ function drawMenu() {
 
 function onMenuClick() {
   if (TELA === MENU) {
-    buttonClick(320, 240, 150, 30, () => (TELA = GAME));
-    buttonClick(320, 290, 150, 30, () => (TELA = CONTROLS));
-    buttonClick(320, 340, 150, 30, () => (TELA = CREDITS));
+    buttonClick(320, 240, 150, 30, () => TELA = GAME);
+    buttonClick(320, 290, 150, 30, () => TELA = CONTROLS);
+    buttonClick(320, 340, 150, 30, () => TELA = CREDITS);
   }
 }

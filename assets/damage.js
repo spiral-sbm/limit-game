@@ -1,4 +1,4 @@
-function damage() {
+function draw() {
     background(40);
     for (var i = 0; i < num; i++) {
         const bx1 = r[i];
