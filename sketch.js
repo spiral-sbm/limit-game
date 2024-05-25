@@ -5,7 +5,7 @@ const GAME = "game";
 const CONTROLS = "controls";
 const CREDITS = "credits";
 
-var TELA = MENU;
+var TELA = GAME;
 
 let img;
 let img2;
@@ -13,38 +13,44 @@ let sbm;
 let mouse;
 let telefone;
 
+let ivan;
+
 let myFont;
+let prpg
 let BG = 500;
 
 function preload() {
   myFont = loadFont("public/Rock3D-Regular.ttf");
+  prpg = loadFont("public/Propaganda.ttf")
 }
 
 function setup() {
-  createCanvas(640, 480, WEBGL);
+  createCanvas(640, 480);
   textFont(myFont);
-
+  textFont(prpg);
+  
   img = loadImage("public/AEBBTW.webp");
   img2 = loadImage("public/AEBBTW2.webp");
   sbm = loadImage("public/samuel.webp");
   mouse = loadImage("public/mouse.webp");
   telefone = loadImage("public/telefone.webp");
+  
+  ivan = loadImage("public/ivan.png");
 }
 
 function draw() {
+  
   rectMode(CENTER);
   textFont(myFont);
   background(BG);
 
   if (TELA === MENU) {
     drawMenu();
-  }
-  if (TELA === GAME) {
+  } if (TELA === GAME) {
     drawGame();
-  }
-  if (TELA === CONTROLS) {
+  } if (TELA === CONTROLS) {
     drawControls();
-  } else if (TELA === CREDITS) {
+  } else if ( TELA === CREDITS) {
     drawCredits();
   }
 }

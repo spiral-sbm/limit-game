@@ -1,21 +1,22 @@
 function drawMenu() {
   BG = 5;
   background(BG*100);
-  drawButton(0, 0, 150, 30, 'black');
-  drawButton(0, 50, 150, 30, 'black');
-  drawButton(0, 100, 150, 30, 'black');
+  drawButton(320, 230, 150, 30, 'black');
+  drawButton(320, 300, 150, 30, 'black');
+  drawButton(320, 370, 150, 30, 'black');
   
-  fill('black')
-  textSize(20);
+  fill('black');
+  push();
   textSize(50);
-  text("Limit.", -90, -75);
+  text("Limit.", 240, 120);
+  pop();
   textSize(20);
-  text("An empty bliss beyond this game.", -230, -50);
+  text("An empty bliss beyond this game.", 110, 140);
 
   fill('white');
-  text("Jogar", -35, 5);
-  text("Controles", -53, 55);
-  text("Creditos", -48, 105);
+  text("Jogar", 290, 235);
+  text("Controles", 320, 300);
+  text("Creditos", 320, 370);
   
   if (
     mouseX >= 245 &&
@@ -28,28 +29,13 @@ function drawMenu() {
   ) {
     background(BG);
     fill("white");
-    rect(0, 0, 200, 30);
+    rect(320, 0, 200, 30);
     textSize(50);
     text("Limit.", -90, -75);
     textSize(20);
     text("An empty bliss beyond this game.", -230, -50);
     fill("black");
     text("JOGAR!?", -55, 5);
-
-    noStroke();
-    fill(25);
-    push();
-    translate(-275, 175);
-    rotateY(1.25);
-    rotateX(-0.9);
-    box(200);
-    pop();
-    noFill();
-    stroke(255);
-    push();
-    translate(500, height * 0.25, -200);
-    sphere(350);
-    pop();
   }
   if (
     mouseX >= 245 &&
@@ -69,35 +55,6 @@ function drawMenu() {
     text("An empty bliss beyond this game.", -230, -50);
     fill("black");
     text("CONTROLES!?", -85, 55);
-    
-    // Quadrados 3D.
-
-    noStroke();
-    fill(75);
-    push();
-    translate(-75, -5, -75);
-    rotateY(-3.14);
-    rotateX(-15);
-    box(150);
-    pop();
-    
-    noStroke();
-    fill(50);
-    push();
-    translate(-275, 175);
-    rotateY(1.25);
-    rotateX(-0.9);
-    box(100);
-    pop();
-    
-    noStroke();
-    fill(25);
-    push();
-    translate(-75, 195);
-    rotateY(2.75);
-    rotateX(-2);
-    box(50);
-    pop();
   }
     if (
     mouseX >= 245 &&
@@ -117,17 +74,6 @@ function drawMenu() {
     text("An empty bliss beyond this game.", -230, -50);
     fill("black");
     text("CREDITOS!?", -75, 105);
-    
-    // A pedra com fósforo (An Empty Bliss Beyond This World).
-    
-    push();
-    translate(-75, -50, -250);
-    rotateZ(frameCount * 0.0005);
-    rotateX(frameCount * 0.0005);
-    rotateY(frameCount * 0.0005);
-    texture(img2);
-    box(300);
-    pop();
   }
 }
 
