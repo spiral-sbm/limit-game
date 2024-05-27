@@ -1,29 +1,33 @@
-let characterX = 640 / 2;
-let characterY = 480 / 2;
-
-function rotateCharacter() {
-  push();
-  translate(characterX, characterY)
-  let angle = atan2(mouseY - characterY, mouseX - characterX);
-  rotate(angle);
-  pop();
-}
-
-function moveCharacter() {
-  if (keyIsDown(LEFT_ARROW) === true) {
-    characterX -= 2;
+class Character {
+  constructor(imgPath, x, y) {
+    this.img = loadImage(imgPath);
+    this.x = x;
+    this.y = y;
+    this.speed = 2; // Speed of movement
   }
 
-  if (keyIsDown(RIGHT_ARROW) === true) {
-    characterX += 2;
+  move() {
+    if (keyIsDown(LEFT_ARROW)) {
+      this.x -= this.speed;
+    }
+    if (keyIsDown(RIGHT_ARROW)) {
+      this.x += this.speed;
+    }
+    if (keyIsDown(UP_ARROW)) {
+      this.y -= this.speed;
+    }
+    if (keyIsDown(DOWN_ARROW)) {
+      this.y += this.speed;
+    }
   }
 
-  if (keyIsDown(UP_ARROW) === true) {
-     characterY -= 2;
+  display() {
+    let angle = atan2(mouseY - this.y, mouseX - this.x);
+    push();
+    translate(this.x, this.y);
+    rotate(angle);
+    imageMode(CENTER);
+    image(this.img, 0, 0, 25, 45);
+    pop();
   }
-
-  if (keyIsDown(DOWN_ARROW) === true) {
-    characterY += 2;
-  }
-  image(ivan, characterX, characterY, 50, 50);
 }

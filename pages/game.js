@@ -4,8 +4,8 @@ function drawGame() {
   text("Em desenvolvimento..", -130, 0);
   drawButton(0, 140, 150, 30, BG);
   text("VolTar.", -38, 145);
-  
-  moveCharacter();
+  character.move();
+  character.display();
   // rotateCharacter();
 }
   

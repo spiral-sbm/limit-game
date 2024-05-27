@@ -1,86 +1,52 @@
 function drawMenu() {
   BG = 5;
-  background(BG * 100);
-  drawButton(320, 230, 150, 30, "black");
-  drawButton(320, 300, 150, 30, "black");
-  drawButton(320, 370, 150, 30, "black");
-
-  fill("black");
+  background(menu);
+  
   push();
-  textSize(50);
-  text("Limit.", 240, 120);
+  fill('black')
+  rect(320, 461, 640, 35)
   pop();
+  
+  drawButton(100, 450, 150, 30, 'black');
+  drawButton(320, 450, 150, 30, 'black');
+  drawButton(540, 450, 150, 30, 'black');
+  
+  fill('white');
+  push();
+  stroke(0);
+  strokeWeight(10);
+  textFont(myFont);
+  textSize(50);
+  text("Limit.", 30, 120);
+  pop();
+  
+  push();
+  stroke(0);
+  strokeWeight(5);
+  textFont(prpg);
   textSize(20);
-  text("An empty bliss beyond this game.", 110, 140);
-
-  fill("white");
-  text("Jogar", 290, 235);
-  text("Controles", 320, 300);
-  text("Creditos", 320, 370);
-
-  if (
-    mouseX >= 245 &&
-    mouseX <= 393 &&
-    mouseY >= 225 &&
-    mouseY <= 255 &&
-    TELA !== CREDITS &&
-    TELA !== CONTROLS &&
-    TELA !== GAME
-  ) {
-    background(BG);
-    fill("white");
-    rect(320, 0, 200, 30);
-    textSize(50);
-    text("Limit.", -90, -75);
-    textSize(20);
-    text("An empty bliss beyond this game.", -230, -50);
-    fill("black");
-    text("JOGAR!?", -55, 5);
-  }
-  if (
-    mouseX >= 245 &&
-    mouseX <= 393 &&
-    mouseY >= 275 &&
-    mouseY <= 305 &&
-    TELA !== CREDITS &&
-    TELA !== CONTROLS &&
-    TELA !== GAME
-  ) {
-    background(BG);
-    fill("white");
-    rect(0, 50, 200, 30);
-    textSize(50);
-    text("Limit.", -90, -75);
-    textSize(20);
-    text("An empty bliss beyond this game.", -230, -50);
-    fill("black");
-    text("CONTROLES!?", -85, 55);
-  }
-  if (
-    mouseX >= 245 &&
-    mouseX <= 393 &&
-    mouseY >= 325 &&
-    mouseY <= 355 &&
-    TELA !== CREDITS &&
-    TELA !== CONTROLS &&
-    TELA !== GAME
-  ) {
-    background(BG);
-    fill("white");
-    rect(0, 100, 200, 30);
-    textSize(50);
-    text("Limit.", -90, -75);
-    textSize(20);
-    text("An empty bliss beyond this game.", -230, -50);
-    fill("black");
-    text("CREDITOS!?", -75, 105);
-  }
+  textLeading(20);
+  text("An empty bliss" + "\n" +"beyond this game.", 30, 145);
+  pop();
+  
+  push();
+  textFont(prpg);
+  textSize(20);
+  fill('white');
+  text("Jogar", 290, 100);
+  text("Controles", 266, 455);
+  text("Creditos", 272, 375);
+  
+  let debugText = "X: " + mouseX + "\nY: " + mouseY;
+  text(debugText, 50, 50)
+  image(spiral, 200, 200, 50, 30)
+  pop();
+  
 }
-
 function onMenuClick() {
   if (TELA === MENU) {
-    buttonClick(320, 240, 150, 30, () => (TELA = GAME));
-    buttonClick(320, 290, 150, 30, () => (TELA = CONTROLS));
-    buttonClick(320, 340, 150, 30, () => (TELA = CREDITS));
+    buttonClick(320, 240, 150, 30, () => TELA = GAME);
+    buttonClick(320, 290, 150, 30, () => TELA = CONTROLS);
+    buttonClick(320, 340, 150, 30, () => TELA = CREDITS);
   }
 }

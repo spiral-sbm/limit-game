@@ -11,7 +11,7 @@ function buttonClick(X, Y, W, H, onClick) {
 function drawButton(X, Y, W, H, color) {
   push();
   fill(color);
-  rect(X, Y, W, H, 50);
+  rect(X, Y, W, H);
   pop();
 }
 
