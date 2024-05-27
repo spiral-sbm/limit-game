@@ -15,7 +15,8 @@ function drawButton(X, Y, W, H, color) {
   pop();
 }
 
-function mouseHover(X, Y, W, H, onHover, outHover) { // O mouseHover não está funcionando, testei vários metodos, mas não adiantou.
+function mouseHover(X, Y, W, H, onHover, outHover) {
+  // O mouseHover não está funcionando, testei vários metodos, mas não adiantou.
   if (
     mouseX >= X - W / 2 &&
     mouseX <= X + W / 2 &&
@@ -28,14 +29,15 @@ function mouseHover(X, Y, W, H, onHover, outHover) { // O mouseHover não está 
   }
 }
 
-
 // Função de tecla pressionada.
-function keyPressed (){
-    if (keyCode === UP_ARROW) {
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
     value = 0;
-  } if (keyCode === DOWN_ARROW) {
+  }
+  if (keyCode === DOWN_ARROW) {
     value = 260;
-  } if (keyCode === LEFT_ARROW) {
+  }
+  if (keyCode === LEFT_ARROW) {
     value = 255;
   } else if (keyCode === RIGHT_ARROW) {
     value = 0;
