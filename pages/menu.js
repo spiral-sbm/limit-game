@@ -36,9 +36,8 @@ function drawMenu() {
   text("Jogar", 290, 100);
   text("Controles", 266, 455);
   text("Creditos", 272, 375);
-
-  let debugText = "X: " + mouseX + "\nY: " + mouseY;
-  text(debugText, 50, 50);
+  
+  push();
   image(spiral, 200, 200, 50, 30);
   pop();
 }
