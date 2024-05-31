@@ -1,3 +1,4 @@
+//Função de clique do mouse.
 function buttonClick(X, Y, W, H, onClick) {
   if (
     mouseX >= X - W / 2 &&
@@ -15,6 +16,7 @@ function drawButton(X, Y, W, H, color) {
   pop();
 }
 
+// Função de verificar se o mouse está em cima.
 function mouseHover(X, Y, W, H, onHover, outHover) {
   // O mouseHover não está funcionando, testei vários metodos, mas não adiantou.
   if (
@@ -42,4 +44,69 @@ function keyPressed() {
   } else if (keyCode === RIGHT_ARROW) {
     value = 0;
   }
+}
+
+// Função de vetorização do mouse.
+function getMouseVector() {
+  let mouseAltX = mouseX - ivanPosX;
+  let mouseAltY = mouseY - ivanPosY;
+  let mouseDir = createVector(mouseAltX, mouseAltY);
+  mouseDir.normalize();
+  return mouseDir;
+}
+
+// Função de desenhar o retículo.
+function drawReticle() {
+  noFill();
+  strokeWeight(1.5);
+  stroke(0, 100, 125, 125);
+  ellipse(mouseX, mouseY, 20);
+  stroke(80, 160, 200, 125);
+  line(mouseX - 14, mouseY - 14, mouseX + 14, mouseY + 14);
+  line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
+  stroke(80, 160, 200, 125);
+  line(ivanPosX, ivanPosY, mouseX, mouseY);
+}
+
+// Função de tela de game over.
+function gameOver() {
+  console.log("estamos na tela de perca");
+  push();
+  noStroke();
+  fill(20);
+  rect(0, 200, 600, 200);
+
+  textFont(myFont);
+  textAlign(CENTER);
+  textSize(50);
+  text("Это твой предел?", 320, 240);
+
+  textFont(prpg);
+  textSize(18);
+  fill(235);
+  let scoreString = "score: " + score;
+  text(scoreString, 300, 340);
+
+  Retry.show();
+  Retry.position(250, 380);
+  Retry.size(100, 30);
+  Retry.style("background-color", "#202020");
+  Retry.style("color", "#FFFFFF");
+  Retry.mousePressed(reset);
+
+  pop();
+  noLoop();
+}
+
+// Função de resetar o jogo.
+function reset() {
+  Retry.hide();
+  bulletsFired = [];
+  targetBalloons = [];
+  targetTimer = 0;
+  balloonSpawnMultiplier = 2;
+  score = 0;
+  TELA = MENU;
+
+  loop();
 }

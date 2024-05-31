@@ -3,9 +3,10 @@ class Character {
     this.img = loadImage(imgPath);
     this.x = x;
     this.y = y;
-    this.speed = 2; // Speed of movement
+    this.speed = 2; // Velocidade de movimento
   }
 
+  // Detector de movimento do personagem.
   move() {
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= this.speed;
@@ -20,14 +21,15 @@ class Character {
       this.y += this.speed;
     }
   }
-
+  
+  // Personagem na tela
   display() {
     let angle = atan2(mouseY - this.y, mouseX - this.x);
     push();
     translate(this.x, this.y);
     rotate(angle);
     imageMode(CENTER);
-    image(this.img, 0, 0, 25, 45);
+    image(this.img, 0, 0, 45, 45);
     pop();
   }
 }

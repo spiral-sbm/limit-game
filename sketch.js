@@ -1,63 +1,96 @@
-//Criando o menu do jogo, parte 01
+//Criando o menu do jogo, parte 10
 
 const MENU = "menu";
 const GAME = "game";
 const CONTROLS = "controls";
 const CREDITS = "credits";
+const THEEND = "the-end";
 
 var TELA = MENU;
 
-let sbm;
-let mouse;
-let telefone;
+// Imagens do menu, controles e créditos, respectivamente.
 let menu;
 let spiral;
+let fundo;
+let mouse;
+let telefone;
+let sbm;
 
-let ivan;
+// Imagens do jogo.
 let character;
+let frame;
+let rock;
+let knife;
+let heart;
+let rublux;
 
+// Variáveis responsáveis pelo funcionamento do jogo
+let inimigo;
+let bullets = [];
+let enemies = [];
+
+// Variáveis responsáveis por fontes e cor.
 let myFont;
-let prpg
+let prpg;
 let BG = 500;
 
 function preload() {
   myFont = loadFont("public/Rock3D-Regular.ttf");
-  prpg = loadFont("public/Propaganda.ttf")
+  prpg = loadFont("public/Propaganda.ttf");
 }
 
 function setup() {
-  createCanvas(640, 480);
-  textFont(myFont);
-  textFont(prpg);
+  createCanvas(640, 480); // Qualidade do jogo.
+  textFont(myFont); // Fonte do Limit.
+  textFont(prpg); // Fonte geral.
+  angleMode(DEGREES);
   
+  // Imagens do menu, controles e créditos.
   sbm = loadImage("public/samuel.webp");
   mouse = loadImage("public/mouse.webp");
   telefone = loadImage("public/telefone.webp");
-  menu = loadImage('public/ivan-menu.webp')
-  spiral = loadImage('public/spiral-games.png')
+  menu = loadImage("public/ivan-menu.webp");
+  spiral = loadImage("public/spiral-games.webp");
+  fundo = loadImage("public/background.webp");
   
-  character = new Character('public/ivan.webp', width / 2, height / 2);
+  character = new Character("public/ivan.webp", width / 2, height / 2);
+  frame = loadImage('public/frame.webp');
+  rock = loadImage('public/rock.webp');
+  knife = loadImage('public/knife.webp');
+  heart = loadImage('public/heart.webp');
+  rublux = loadImage('public/rublux.webp');
+  inimigo = loadImage("public/enemy.webp");
+  
+  for (let i = 0; i < 100; i++) {
+    let enemy = {
+      x: random(-3000, 0),
+      y: random(0, width - 57),
+    };
+    enemies.push(enemy);
+  }
 }
 
+// Impressão das telas do jogo.
 function draw() {
-  
   rectMode(CENTER);
   textFont(myFont);
   background(BG);
 
   if (TELA === MENU) {
     drawMenu();
-  } if (TELA === GAME) {
+  }
+  if (TELA === GAME) {
     drawGame();
-  } if (TELA === CONTROLS) {
+  }
+  if (TELA === CONTROLS) {
     drawControls();
-  } else if ( TELA === CREDITS) {
+  } else if (TELA === CREDITS) {
     drawCredits();
   }
 }
 
+// Verificador de click do botão esquerdo do mouse.
 function mouseClicked() {
-  // Verificador de click em botões.
   onMenuClick();
   onGameClick();
   onControlsClick();
