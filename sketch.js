@@ -26,6 +26,9 @@ let rublux;
 
 // Variáveis responsáveis pelo funcionamento do jogo
 let inimigo;
+let gunType; // Fessô, são armas de brinquedo, não me cancele!
+let cash = 0;
+let retry;
 let bullets = [];
 let enemies = [];
 
@@ -45,6 +48,9 @@ function setup() {
   textFont(prpg); // Fonte geral.
   angleMode(DEGREES);
   
+  retry = createButton('retry');
+  retry.hide();
+  
   // Imagens do menu, controles e créditos.
   sbm = loadImage("public/samuel.webp");
   mouse = loadImage("public/mouse.webp");
@@ -61,9 +67,9 @@ function setup() {
   rublux = loadImage('public/rublux.webp');
   inimigo = loadImage("public/enemy.webp");
   
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     let enemy = {
-      x: random(-3000, 0),
+      x: random(-640, 0),
       y: random(0, width - 57),
     };
     enemies.push(enemy);

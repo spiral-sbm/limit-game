@@ -70,11 +70,10 @@ function drawReticle() {
 
 // Função de tela de game over.
 function gameOver() {
-  console.log("estamos na tela de perca");
   push();
   noStroke();
   fill(20);
-  rect(0, 200, 600, 200);
+  rect(height/2, width/2, 600, 200);
 
   textFont(myFont);
   textAlign(CENTER);
@@ -84,15 +83,15 @@ function gameOver() {
   textFont(prpg);
   textSize(18);
   fill(235);
-  let scoreString = "score: " + score;
-  text(scoreString, 300, 340);
+  let score = "Pontos totais: " + cash;
+  text(score, 300, 340);
 
-  Retry.show();
-  Retry.position(250, 380);
-  Retry.size(100, 30);
-  Retry.style("background-color", "#202020");
-  Retry.style("color", "#FFFFFF");
-  Retry.mousePressed(reset);
+  retry.show();
+  retry.position(height/2, width/2);
+  retry.size(100, 30);
+  retry.style("background-color", "#202020");
+  retry.style("color", "#FFFFFF");
+  retry.mousePressed(reset);
 
   pop();
   noLoop();
@@ -100,13 +99,11 @@ function gameOver() {
 
 // Função de resetar o jogo.
 function reset() {
-  Retry.hide();
+  retry.hide();
   bulletsFired = [];
-  targetBalloons = [];
+  enemies.x = 0;
   targetTimer = 0;
-  balloonSpawnMultiplier = 2;
-  score = 0;
+  cash = 0;
   TELA = MENU;
-
   loop();
 }

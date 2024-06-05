@@ -5,7 +5,7 @@ class Character {
     this.y = y;
     this.speed = 2; // Velocidade de movimento
   }
-
+  
   // Detector de movimento do personagem.
   move() {
     if (keyIsDown(LEFT_ARROW)) {
