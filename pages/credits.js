@@ -3,8 +3,7 @@ function drawCredits() {
   fill("white");
   rect(320, 240, 600, 440);
   stroke(0); // Fundo preto e tela branca, causando efeito de borda.
-
-  image(sbm, 40, 40, 250, 250);
+  
   fill("black");
   textSize(30);
   text("Felipe SBM", 40, 325);

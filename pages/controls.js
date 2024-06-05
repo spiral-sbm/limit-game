@@ -1,56 +1,42 @@
 function drawControls() {
   background(BG - 5);
-  image(mouse, -320, -185, 200, 200);
-  image(telefone, -400, 40, 300, 200);
-
   let debugText = "X: " + mouseX + "\nY: " + mouseY;
-  fill("white");
-  text("Mouse", -250, -200);
-  text(
-    "LMB para selecionar objetos na tela. Teste de mouse:" + "\n" + debugText,
-    70,
-    -150,
-    300
-  );
-  function drawControls() {
-    background(BG - 5);
-    image(mouse, -320, -185, 200, 200);
-    image(telefone, -400, 40, 300, 200);
 
-    let debugText = "X: " + mouseX + "\nY: " + mouseY;
+  image(mouse, 0, 30, 200, 200);
+  image(telefone, -90, 280, 300, 200);
+
+  push();
     fill("white");
-    text("Mouse", -250, -200);
+    textSize(35);
+    textFont(myFont);
+    text("Mouse", 250, 50);
+    text("Telefone", 245, 300);
+  pop();
+  
+  push();
+    fill("white");
+    textSize(25);
+    textFont(prpg);
     text(
       "LMB para selecionar objetos na tela. Teste de mouse:" + "\n" + debugText,
-      70,
-      -150,
-      300
+      420,
+      100,
+      400
     );
+    text("Apenas clicar na tela do jogo para selecionar, mover-se, disparar etc.", 420, 340, 400);
+  pop();
 
-    text("Telefone", -282, 30);
-    text("Apenas clicar na tela para selecionar.", 70, 60, 300);
-
-    drawButton(0, 140, 150, 30, "white");
-    fill(BG);
-    text("VolTar.", -38, 145);
-  }
-
-  function onControlsClick() {
-    if (TELA === CONTROLS) {
-      buttonClick(320, 380, 150, 30, () => (TELA = MENU));
-    }
-  }
-
-  text("Telefone", -282, 30);
-  text("Apenas clicar na tela para selecionar.", 70, 60, 300);
-
-  drawButton(0, 140, 150, 30, "white");
-  fill(BG);
-  text("VolTar.", -38, 145);
+  push();
+    drawButton(540, 440, 150, 30, "white");
+    fill("black");
+    textFont(prpg);
+    textSize(25)
+    text("Voltar.", 495, 450);
+  pop();
 }
 
 function onControlsClick() {
-  if (TELA === CONTROLS) {
-    buttonClick(320, 380, 150, 30, () => (TELA = MENU));
+  if (TELA === CONTROLS) {  
+    buttonClick(540, 440, 150, 30, () => (TELA = MENU));
   }
 }

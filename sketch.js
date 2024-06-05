@@ -14,7 +14,6 @@ let spiral;
 let fundo;
 let mouse;
 let telefone;
-let sbm;
 
 // Imagens do jogo.
 let character;
@@ -47,30 +46,29 @@ function setup() {
   textFont(myFont); // Fonte do Limit.
   textFont(prpg); // Fonte geral.
   angleMode(DEGREES);
-  
-  retry = createButton('retry');
+
+  retry = createButton("retry");
   retry.hide();
-  
+
   // Imagens do menu, controles e créditos.
-  sbm = loadImage("public/samuel.webp");
   mouse = loadImage("public/mouse.webp");
   telefone = loadImage("public/telefone.webp");
   menu = loadImage("public/ivan-menu.webp");
   spiral = loadImage("public/spiral-games.webp");
   fundo = loadImage("public/background.webp");
-  
+
   character = new Character("public/ivan.webp", width / 2, height / 2);
-  frame = loadImage('public/frame.webp');
-  rock = loadImage('public/rock.webp');
-  knife = loadImage('public/knife.webp');
-  heart = loadImage('public/heart.webp');
-  rublux = loadImage('public/rublux.webp');
+  frame = loadImage("public/frame.webp");
+  rock = loadImage("public/rock.webp");
+  knife = loadImage("public/knife.webp");
+  heart = loadImage("public/heart.webp");
+  rublux = loadImage("public/rublux.webp");
   inimigo = loadImage("public/enemy.webp");
-  
+
   for (let i = 0; i < 10; i++) {
     let enemy = {
       x: random(-640, 0),
-      y: random(0, width - 57),
+      y: random(40, 400),
     };
     enemies.push(enemy);
   }
@@ -89,6 +87,7 @@ function draw() {
     drawGame();
   }
   if (TELA === CONTROLS) {
+    BG = 10;
     drawControls();
   } else if (TELA === CREDITS) {
     drawCredits();
