@@ -5,7 +5,7 @@ class Character {
     this.y = y;
     this.speed = 2; // Velocidade de movimento
   }
-  
+
   // Detector de movimento do personagem.
   move() {
     if (keyIsDown(LEFT_ARROW)) {
@@ -21,7 +21,7 @@ class Character {
       this.y += this.speed;
     }
   }
-  
+
   // Personagem na tela
   display() {
     let angle = atan2(mouseY - this.y, mouseX - this.x);

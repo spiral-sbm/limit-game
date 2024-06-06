@@ -6,14 +6,14 @@ const CONTROLS = "controls";
 const CREDITS = "credits";
 const THEEND = "the-end";
 
-var TELA = MENU;
+var TELA = GAME;
 
 // Imagens do menu, controles e créditos, respectivamente.
 let menu;
 let spiral;
 let fundo;
 let mouse;
-let telefone;
+let arrows;
 
 // Imagens do jogo.
 let character;
@@ -27,7 +27,8 @@ let rublux;
 let inimigo;
 let gunType; // Fessô, são armas de brinquedo, não me cancele!
 let cash = 0;
-let retry;
+let retry = false;
+let retryValidate = false;
 let bullets = [];
 let enemies = [];
 
@@ -52,7 +53,7 @@ function setup() {
 
   // Imagens do menu, controles e créditos.
   mouse = loadImage("public/mouse.webp");
-  telefone = loadImage("public/telefone.webp");
+  arrows = loadImage("public/arrows.webp");
   menu = loadImage("public/ivan-menu.webp");
   spiral = loadImage("public/spiral-games.webp");
   fundo = loadImage("public/background.webp");
@@ -84,12 +85,14 @@ function draw() {
     drawMenu();
   }
   if (TELA === GAME) {
+    BG = 5;
     drawGame();
   }
   if (TELA === CONTROLS) {
     BG = 10;
     drawControls();
   } else if (TELA === CREDITS) {
+    BG = 15;
     drawCredits();
   }
 }

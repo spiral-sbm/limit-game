@@ -72,26 +72,28 @@ function drawReticle() {
 function gameOver() {
   push();
   noStroke();
-  fill(20);
-  rect(height/2, width/2, 600, 200);
+  fill(BG);
+  rect(320, 240, 420, 220);
 
+  push();
   textFont(myFont);
   textAlign(CENTER);
   textSize(50);
-  text("Это твой предел?", 320, 240);
+  fill("white");
+  text("Faleceu...", 320, 200);
+  pop();
 
+  push();
   textFont(prpg);
   textSize(18);
   fill(235);
   let score = "Pontos totais: " + cash;
-  text(score, 300, 340);
-
-  retry.show();
-  retry.position(height/2, width/2);
-  retry.size(100, 30);
-  retry.style("background-color", "#202020");
-  retry.style("color", "#FFFFFF");
-  retry.mousePressed(reset);
+  text(score, 240, 250);
+  drawButton(320, 320, 180, 30, "red");
+  fill("yellow");
+  text("reiniciar", 270, 325);
+  pop();
+  retry = true;
 
   pop();
   noLoop();
@@ -99,11 +101,7 @@ function gameOver() {
 
 // Função de resetar o jogo.
 function reset() {
-  retry.hide();
-  bulletsFired = [];
-  enemies.x = 0;
-  targetTimer = 0;
   cash = 0;
-  TELA = MENU;
+  retryValidate = true;
   loop();
 }
