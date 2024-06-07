@@ -1,4 +1,4 @@
-//Criando o menu do jogo, parte 10
+//Criando o menu do jogo, parte FINAL! yay
 
 const MENU = "menu";
 const GAME = "game";
@@ -6,7 +6,7 @@ const CONTROLS = "controls";
 const CREDITS = "credits";
 const THEEND = "the-end";
 
-var TELA = GAME;
+var TELA = MENU;
 
 // Imagens do menu, controles e créditos, respectivamente.
 let menu;
