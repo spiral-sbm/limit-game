@@ -21,13 +21,13 @@ function drawControls() {
     "LMB para disparar pedras na tela. Teste de mouse:" + "\n" + debugText,
     420,
     100,
-    400
+    400,
   );
   text(
     "Pressionar cada seta para o sentido desejado que o personagem deve seguir.",
     420,
     340,
-    400
+    400,
   );
   pop();
 
