@@ -11,43 +11,7 @@ function drawGame() {
     pop();
   }
 
-  // Verificador de finais.
-  character.move();
-  character.display();
-
-  // Atualiza e imprime inimigos
-  for (var enemy of enemies) {
-    enemy.x += 111.75;
-    image(inimigo, enemy.x, enemy.y, 57, 57);
-    if (enemy.x > width) {
-      gameOver();
-    }
-  }
-
-  // Colisão e vida dos inimigos
-  for (let enemy of enemies) {
-    for (let bullet of bullets) {
-      if (dist(enemy.x, enemy.y, bullet.x, bullet.y) < 10) {
-        enemies.splice(enemies.indexOf(enemy), 1);
-        bullets.splice(bullets.indexOf(bullet), 1);
-        for (let i = 0; i < 1; i++) {
-          let enemy = {
-            x: random(-3000, 0),
-            y: random(40, 400),
-          };
-          enemies.push(enemy);
-          cash += 1;
-          if (retry === true) {
-            let enemy = {
-              x: random(-3000, 0),
-              y: random(40, 400),
-            };
-            retry = false;
-          }
-        }
-      }
-    }
-  }
+  resetSketch();
 
   push();
   textFont(prpg);
@@ -56,6 +20,7 @@ function drawGame() {
   textAlign(RIGHT);
   stroke(5);
   text(cash, 510, 44);
+  text(life, 510, 74);
   image(frame, 555, 20, 65, 65);
   image(rock, 562, 27, 50, 50);
   image(heart, 510, 45, 45, 45);
@@ -65,7 +30,10 @@ function drawGame() {
 
 // Função de clique no jogo.
 function onGameClick() {
-  buttonClick(320, 320, 180, 30, () => (TELA = MENU));
+  // Função de tela de lose.
+  if (life === 0) {
+    TELA = LOSE;
+  }
   if (TELA === GAME) {
     let direcaoX = mouseX - character.x;
     let direcaoY = mouseY - character.y;
@@ -81,5 +49,41 @@ function onGameClick() {
       velocidadeY: velocidadeY,
     };
     bullets.push(bullet);
+  }
+}
+
+// Função de resetar o jogo.
+function resetSketch() {
+  
+  // Verificador de finais.
+  character.move();
+  character.display();
+
+  // Atualiza e imprime inimigos
+  for (var enemy of enemies) {
+    enemy.x += aceleration;
+    image(inimigo, enemy.x, enemy.y, 57, 57);
+    if (enemy.x > width) {
+      life--;
+      TELA = LOSE;
+    }
+  }
+
+  // Colisão e vida dos inimigos
+  for (let enemy of enemies) {
+    for (let bullet of bullets) {
+      if (dist(enemy.x, enemy.y, bullet.x, bullet.y) < 10) {
+        enemies.splice(enemies.indexOf(enemy), 1);
+        bullets.splice(bullets.indexOf(bullet), 1);
+        for (let i = 0; i < 1; i++) {
+          let enemy = {
+            x: random(initial, 0),
+            y: random(40, 400),
+          };
+          enemies.push(enemy);
+          cash += 1;
+        }
+      }
+    }
   }
 }
