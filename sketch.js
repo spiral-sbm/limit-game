@@ -1,10 +1,10 @@
-//Criando o menu do jogo, parte FINAL! yay
+//Criando o menu do jogo, parte 10
 
 const MENU = "menu";
 const GAME = "game";
 const CONTROLS = "controls";
 const CREDITS = "credits";
-const THEEND = "the-end";
+const LOSE = "lose";
 
 var TELA = MENU;
 
@@ -25,12 +25,13 @@ let rublux;
 
 // Variáveis responsáveis pelo funcionamento do jogo
 let inimigo;
-let gunType; // Fessô, são armas de brinquedo, não me cancele!
+let life = 1;
 let cash = 0;
-let retry = false;
-let retryValidate = false;
-let bullets = [];
+let bullets = []; // Fessô, são armas de brinquedo, não me cancele!
 let enemies = [];
+let aceleration = 1.75;
+let initial = -3000;
+let verify = false;
 
 // Variáveis responsáveis por fontes e cor.
 let myFont;
@@ -91,9 +92,13 @@ function draw() {
   if (TELA === CONTROLS) {
     BG = 10;
     drawControls();
-  } else if (TELA === CREDITS) {
+  }
+  if (TELA === CREDITS) {
     BG = 15;
     drawCredits();
+  } else if (TELA === LOSE) {
+    BG = 0;
+    drawLose();
   }
 }
 
@@ -101,6 +106,7 @@ function draw() {
 function mouseClicked() {
   onMenuClick();
   onGameClick();
+  onLoseClick();
   onControlsClick();
   onCreditsClick();
 }
