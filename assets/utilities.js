@@ -67,3 +67,10 @@ function drawReticle() {
   stroke(80, 160, 200, 125);
   line(ivanPosX, ivanPosY, mouseX, mouseY);
 }
+
+function goingBack() {
+  window.history.back();
+  setTimeout(() => {
+  window.location.reload();
+  }, 100);
+}
