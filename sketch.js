@@ -7,7 +7,7 @@ const CREDITS = "credits";
 const LOSE = "lose";
 const VICTORY = "victory";
 
-var TELA = VICTORY;
+var TELA = MENU;
 
 // Imagens do menu, controles e créditos, respectivamente.
 let menu;
