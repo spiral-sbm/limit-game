@@ -55,6 +55,19 @@ function onGameClick() {
 // Função de resetar o jogo.
 function resetSketch() {
   
+    // Verificador de Rublux para passar fase.
+  if (cash < 15){
+    aceleration = 1.0;
+  } if (cash >= 15 && cash < 30) {
+    aceleration = 1.75;
+  } if (cash > 30 && cash <= 50) {
+    aceleration = 2.0;
+  } if (cash > 50 && cash < 100) {
+    aceleration = 2.75;
+  } else if (cash >= 100) {
+    TELA = VICTORY
+  }
+  
   // Verificador de finais.
   character.move();
   character.display();
@@ -65,14 +78,16 @@ function resetSketch() {
     image(inimigo, enemy.x, enemy.y, 57, 57);
     if (enemy.x > width) {
       life--;
-      TELA = LOSE;
+      if (life === 0) {
+        TELA = LOSE;
+      }
     }
   }
 
   // Colisão e vida dos inimigos
-  for (let enemy of enemies) {
-    for (let bullet of bullets) {
-      if (dist(enemy.x, enemy.y, bullet.x, bullet.y) < 10) {
+  for (let enemy of enemies) { // Para cada inimigo.
+    for (let bullet of bullets) { // Cada bala atingida
+      if (dist(enemy.x, enemy.y, bullet.x, bullet.y) < 57) {
         enemies.splice(enemies.indexOf(enemy), 1);
         bullets.splice(bullets.indexOf(bullet), 1);
         for (let i = 0; i < 1; i++) {
