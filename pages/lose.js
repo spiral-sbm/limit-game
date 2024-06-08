@@ -33,18 +33,11 @@ function drawLose() {
   textFont(prpg);
   textSize(12);
   fill("white");
-  text("Dicas: O personagem e imortal, mas precisa defender sua casa ao lado direito. Alguns inimigos podem ser mais fortes que os outros, tome cuidado. Se conseguir mais de 50 rublux ganha o limit.", 325, 40, 450);
+  text("Dicas: O personagem e imortal, mas precisa defender sua casa ao lado direito. Alguns inimigos podem ter diferentes pontos de dano, tome cuidado. Cada fase e concluida ao conseguir 15 rublux.", 325, 40, 450);
   pop();
   
   image(knife, 525, 60, 35, 35)
   image(heart, 85, 5, 25, 25)
-}
-
-function goingBack() {
-  window.history.back();
-  setTimeout(() => {
-  window.location.reload();
-  }, 100);
 }
 
 function onLoseClick() {
