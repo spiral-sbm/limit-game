@@ -5,8 +5,9 @@ const GAME = "game";
 const CONTROLS = "controls";
 const CREDITS = "credits";
 const LOSE = "lose";
+const VICTORY = "victory";
 
-var TELA = MENU;
+var TELA = VICTORY;
 
 // Imagens do menu, controles e créditos, respectivamente.
 let menu;
@@ -25,11 +26,11 @@ let rublux;
 
 // Variáveis responsáveis pelo funcionamento do jogo
 let inimigo;
-let life = 1;
+let life = 3;
 let cash = 0;
 let bullets = []; // Fessô, são armas de brinquedo, não me cancele!
 let enemies = [];
-let aceleration = 1.75;
+let aceleration = 1.0;
 let initial = -3000;
 let verify = false;
 
@@ -67,7 +68,7 @@ function setup() {
   rublux = loadImage("public/rublux.webp");
   inimigo = loadImage("public/enemy.webp");
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 25; i++) {
     let enemy = {
       x: random(-640, 0),
       y: random(40, 400),
@@ -96,9 +97,12 @@ function draw() {
   if (TELA === CREDITS) {
     BG = 15;
     drawCredits();
-  } else if (TELA === LOSE) {
+  } if (TELA === LOSE) {
     BG = 0;
     drawLose();
+  } else if (TELA === VICTORY) {
+    BG = 0;
+    drawWin();
   }
 }
 
@@ -107,6 +111,7 @@ function mouseClicked() {
   onMenuClick();
   onGameClick();
   onLoseClick();
+  onWinClick();
   onControlsClick();
   onCreditsClick();
 }
