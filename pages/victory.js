@@ -43,7 +43,7 @@ function drawWin() {
 }
 
 function onWinClick() {
-  if (TELA === LOSE) {
+  if (TELA === VICTORY) {
     buttonClick(200, 400, 180, 30, () => (TELA = MENU));
   }
 }
