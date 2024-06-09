@@ -1,9 +1,8 @@
 // Função de tela de game over.
 function drawWin() {
-  push();
+  cursor("progress"); // Cursor com bolinha de carregamento.
 
-  cursor("progress");
-
+  // Logo do jogo, mostrando que você chegou ao limite.
   push();
   textFont(myFont);
   textAlign(CENTER);
@@ -12,6 +11,7 @@ function drawWin() {
   text("Limit.", 320, 200);
   pop();
 
+  // Botao de voltar ao menu principal
   push();
   textFont(prpg);
   textSize(18);
@@ -22,13 +22,14 @@ function drawWin() {
   text("Voltar ao Limit.", 120, 407);
   pop();
 
+  // Retângulo da caixa de texto.
   push();
   stroke("white");
   fill("black");
   rect(323, 450, 455, 60);
   pop();
-  pop();
 
+  // Texto da caixa de texto.
   push();
   textFont(prpg);
   textSize(12);
@@ -43,12 +44,14 @@ function drawWin() {
   );
   pop();
 
+  // Imagens da tela final.
   image(rublux, 535, 405, 25, 25);
   image(rock, 80, 460, 25, 25);
-  character.display();
-  character.move();
+  character.display(); // Personagem sendo exibido...
+  character.move(); // Dando aspecto de ter morrido.
 }
 
+// Função de cliques na tela de vitória.
 function onWinClick() {
   if (TELA === VICTORY) {
     buttonClick(200, 400, 180, 30, () => (TELA = MENU));
