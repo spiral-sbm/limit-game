@@ -1,7 +1,7 @@
 function drawGame() {
-  background(fundo);
+  background(fundo); // Cor do fundo do jogo caso imagem não carregue.
 
-  cursor(CROSS);
+  cursor(CROSS); // Mudar cursor para mirinha.
 
   // Cirador de tiros.
   for (let bullet of bullets) {
@@ -13,8 +13,9 @@ function drawGame() {
     pop();
   }
 
-  resetSketch();
+  resetSketch(); // Habilitar função de recaregar tela.
 
+  // Elementos da tela.
   push();
   textFont(prpg);
   fill("white");
@@ -30,6 +31,7 @@ function drawGame() {
   image(rublux, 516, 20, 30, 30);
   pop();
 
+  // Mostrador de fase.
   fill("white");
   push();
   stroke(0);
@@ -60,6 +62,7 @@ function onGameClick() {
       velocidadeX: velocidadeX,
       velocidadeY: velocidadeY,
     };
+    throwing.play();
     bullets.push(bullet);
   }
 }
@@ -89,12 +92,13 @@ function resetSketch() {
     // Verificador de finais.
     if (win === false) {
       TELA = VICTORY;
+      died.play();
     } else if (win === true) {
       win = false;
       goingBack();
     }
   }
-  
+
   // Personagem aparecendo e se mechendo.
   character.move();
   character.display();
@@ -105,6 +109,7 @@ function resetSketch() {
     image(inimigo, enemy.x, enemy.y, 57, 57);
     if (enemy.x > width) {
       life--;
+      enemies.splice(enemies.indexOf(enemy), 1);
       if (life === 0) {
         TELA = LOSE;
       }
@@ -130,6 +135,7 @@ function resetSketch() {
             x: random(initial, 0),
             y: random(40, 400),
           };
+          died.play();
           enemies.push(enemy);
           cash += 1;
         }
