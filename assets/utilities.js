@@ -71,6 +71,6 @@ function drawReticle() {
 function goingBack() {
   window.history.back();
   setTimeout(() => {
-  window.location.reload();
+    window.location.reload();
   }, 100);
 }
