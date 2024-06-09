@@ -2,31 +2,48 @@ function drawCredits() {
   background(BG);
 
   push();
-  fill("white");
+  fill("black");
   rect(320, 240, 600, 440);
-  stroke(0); // Fundo preto e tela branca, causando efeito de borda.
+  stroke(1); // Fundo preto e tela branca, causando efeito de borda.
   pop();
 
-  fill("black");
+  push();
+  fill("white");
   textSize(30);
-  text("Diego Lucas", 40, 75);
-  text("Juliano Oliv.", 40, 205);
-  text("Felipe SBM", 40, 335);
+  textAlign(RIGHT);
+  text("Diego Lucas", 300, 70);
+  text("Juliano Oliv.", 300, 120);
+  text("Felipe SBM", 300, 170);
+  text("Pedro Mon.", 300, 220); // https://www.youtube.com/@pedroemanuel5395
+  text("Mr. Ward", 300, 270); // https://www.youtube.com/@codingwithmrward1648
+  pop();
 
   push();
+  fill("white");
+  textSize(30);
   textFont(prpg);
   textSize(20);
-
+  textAlign(LEFT);
   // Diego Lucas
-  text("Roteirista, designer & suporte tecnico.", 460, 210, 300, 300);
+  text("Roteiro", 320, 70);
   // Juliano Oliveira
-  text("Programador, diretor musical & artista visual.", 460, 340, 300, 300);
+  text("SFX & VFX.", 320, 120);
   //  Felipe SBM
-  text("Programador", 460, 470, 300, 300);
+  text("Desenvolvimento", 320, 170);
+  // Pedro Monteiro
+  text("Artes Visuais", 320, 220);
+  // Mr. Ward
+  text("Mecanica de inimigos", 320, 270);
   drawButton(555, 430, 100, 35, "red");
   fill("yellow");
   text("Voltar", 520, 435);
   pop();
+
+  image(die, 40, 390, 50, 60);
+  image(jul, 100, 360, 70, 90);
+  image(sbm, 155, 365, 65, 85);
+  image(pdr, 230, 375, 60, 75);
+  image(mrw, 300, 390, 60, 60);
 }
 
 function onCreditsClick() {
