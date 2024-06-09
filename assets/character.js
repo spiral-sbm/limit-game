@@ -8,17 +8,25 @@ class Character {
 
   // Detector de movimento do personagem.
   move() {
-    if (keyIsDown(LEFT_ARROW)) {
-      this.x -= this.speed;
+    if (this.x > 10) {
+      if (keyIsDown(LEFT_ARROW)) {
+        this.x -= this.speed;
+      }
     }
-    if (keyIsDown(RIGHT_ARROW)) {
-      this.x += this.speed;
+    if (this.x < 630) {
+      if (keyIsDown(RIGHT_ARROW)) {
+        this.x += this.speed;
+      }
     }
-    if (keyIsDown(UP_ARROW)) {
-      this.y -= this.speed;
+    if (this.y > 10) {
+      if (keyIsDown(UP_ARROW)) {
+        this.y -= this.speed;
+      }
     }
-    if (keyIsDown(DOWN_ARROW)) {
-      this.y += this.speed;
+    if (this.y < 470) {
+      if (keyIsDown(DOWN_ARROW)) {
+        this.y += this.speed;
+      }
     }
   }
 
