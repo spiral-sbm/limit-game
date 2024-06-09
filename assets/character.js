@@ -30,7 +30,7 @@ class Character {
     }
   }
 
-  // Personagem na tela
+  // Personagem impresso na tela.
   display() {
     let angle = atan2(mouseY - this.y, mouseX - this.x);
     push();
