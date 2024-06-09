@@ -14,12 +14,12 @@ function drawCredits() {
   textAlign(RIGHT);
   text("Diego Lucas", 300, 70);
   text("Juliano Oliv.", 300, 120);
-  text("Felipe SBM", 300, 170); // Eu fiz o jogo inteiro sozinho... :(
+  text("Felipe SBM", 300, 170);
   text("Pedro Mon.", 300, 220); // https://www.youtube.com/@pedroemanuel5395
   text("Mr. Ward", 300, 270); // https://www.youtube.com/@codingwithmrward1648
   pop();
 
-  // "FUNÇÕES" de cada "P A R T I C I P A N T E".
+  // Funções de cada participante.
   push();
   fill("white");
   textSize(30);
