@@ -9,6 +9,7 @@ function buttonClick(X, Y, W, H, onClick) {
     onClick();
   }
 }
+// Função de desenhar o botão na tela.
 function drawButton(X, Y, W, H, color) {
   push();
   fill(color);
@@ -68,9 +69,10 @@ function drawReticle() {
   line(ivanPosX, ivanPosY, mouseX, mouseY);
 }
 
+// Função de recarregar a página.
 function goingBack() {
   window.history.back();
   setTimeout(() => {
     window.location.reload();
-  }, 100);
+  }, 10);
 }
