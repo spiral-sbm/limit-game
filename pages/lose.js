@@ -1,9 +1,8 @@
 // Função de tela de game over.
 function drawLose() {
-  push();
+  cursor("progress"); // Função de exibir cursor com bolinha de carregamento.
 
-  cursor("progress");
-
+  // Título de mensagem de morte.
   push();
   textFont(myFont);
   textAlign(CENTER);
@@ -12,6 +11,7 @@ function drawLose() {
   text("Faleceu...", 320, 200);
   pop();
 
+  // Placar de pontos totais e botão de voltar ao menu
   push();
   textFont(prpg);
   textSize(18);
@@ -24,13 +24,14 @@ function drawLose() {
   text("Voltar ao menu", 250, 325);
   pop();
 
+  // Retângulo da caixa de texto.
   push();
   stroke("white");
   fill("black");
   rect(320, 50, 450, 60);
   pop();
-  pop();
 
+  // Caixa de texto com dicas.
   push();
   textFont(prpg);
   textSize(12);
@@ -43,12 +44,15 @@ function drawLose() {
   );
   pop();
 
+  // Imagens com itens do jogo.
   image(knife, 525, 60, 35, 35);
   image(heart, 85, 5, 25, 25);
 }
 
+// Função do botão da tela de de Game Over.
 function onLoseClick() {
   if (TELA === LOSE) {
+    throwing.play();
     buttonClick(320, 320, 180, 30, () => goingBack());
   }
 }
