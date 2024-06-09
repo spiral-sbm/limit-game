@@ -85,17 +85,16 @@ function resetSketch() {
     aceleration = 3.0;
     fill("purple");
     verify = "Fase 4";
-  } else if (cash >= 1) {
+  } else if (cash >= 250) {
     // Verificador de finais.
     if (win === false) {
       TELA = VICTORY;
     } else if (win === true) {
       win = false;
-      window.location.reload();
+      goingBack();
     }
   }
-
-  console.log(win);
+  
   // Personagem aparecendo e se mechendo.
   character.move();
   character.display();
