@@ -110,6 +110,9 @@ function setup() {
 // Função para carregar música em loop
 function carregado() {
   limit.loop(); // Música feita por mim.
+  if (TELA === VICTORY) {
+    victory.play(); // Efeito sonoro de crianças do jogo FNAF. Editado por mim.
+  }
 }
 
 // Impressão das telas do jogo.
