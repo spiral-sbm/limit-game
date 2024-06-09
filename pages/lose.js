@@ -40,7 +40,7 @@ function drawLose() {
     "Dicas: O personagem e imortal, mas precisa defender sua casa ao lado direito. Cada fase e ultrapassada ao conseguir certa quantidade de Rublux. No total existem 4 fases, boa sorte...",
     325,
     40,
-    450,
+    450
   );
   pop();
 
