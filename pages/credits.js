@@ -17,6 +17,7 @@ function drawCredits() {
   text("Felipe SBM", 300, 170);
   text("Pedro Mon.", 300, 220); // https://www.youtube.com/@pedroemanuel5395
   text("Mr. Ward", 300, 270); // https://www.youtube.com/@codingwithmrward1648
+  text("Pixabay", 300, 320)
   pop();
 
   // Funções de cada participante.
@@ -36,6 +37,8 @@ function drawCredits() {
   text("Artes Visuais", 320, 220);
   // Mr. Ward
   text("Mecanica de inimigos", 320, 270);
+  // PixaBay
+  text("Efeito sonoro kids", 320, 320);
   drawButton(555, 430, 100, 35, "red");
   fill("yellow");
   text("Voltar", 520, 435);
