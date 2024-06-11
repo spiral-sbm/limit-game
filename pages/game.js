@@ -1,5 +1,7 @@
 function drawGame() {
-  background(fundo);
+  background(fundo); // Cor do fundo do jogo caso imagem não carregue.
+
+  cursor(CROSS); // Mudar cursor para mirinha.
 
   // Cirador de tiros.
   for (let bullet of bullets) {
@@ -11,61 +13,41 @@ function drawGame() {
     pop();
   }
 
-  // Verificador de finais.
-  character.move();
-  character.display();
+  resetSketch(); // Habilitar função de recaregar tela.
 
-  // Atualiza e imprime inimigos
-  for (var enemy of enemies) {
-    enemy.x += 111.75;
-    image(inimigo, enemy.x, enemy.y, 57, 57);
-    if (enemy.x > width) {
-      gameOver();
-    }
-  }
-
-  // Colisão e vida dos inimigos
-  for (let enemy of enemies) {
-    for (let bullet of bullets) {
-      if (dist(enemy.x, enemy.y, bullet.x, bullet.y) < 10) {
-        enemies.splice(enemies.indexOf(enemy), 1);
-        bullets.splice(bullets.indexOf(bullet), 1);
-        for (let i = 0; i < 1; i++) {
-          let enemy = {
-            x: random(-3000, 0),
-            y: random(40, 400),
-          };
-          enemies.push(enemy);
-          cash += 1;
-          if (retry === true) {
-            let enemy = {
-              x: random(-3000, 0),
-              y: random(40, 400),
-            };
-            retry = false;
-          }
-        }
-      }
-    }
-  }
-
+  // Elementos da tela.
   push();
   textFont(prpg);
   fill("white");
   textSize(20);
   textAlign(RIGHT);
-  stroke(5);
+  stroke(1);
+  strokeWeight(5);
   text(cash, 510, 44);
+  text(life, 510, 74);
   image(frame, 555, 20, 65, 65);
   image(rock, 562, 27, 50, 50);
   image(heart, 510, 45, 45, 45);
   image(rublux, 516, 20, 30, 30);
   pop();
+
+  // Mostrador de fase.
+  fill("white");
+  push();
+  stroke(0);
+  strokeWeight(10);
+  textFont(myFont);
+  textSize(30);
+  text(verify, 40, 60);
+  pop();
 }
 
 // Função de clique no jogo.
 function onGameClick() {
-  buttonClick(320, 320, 180, 30, () => (TELA = MENU));
+  // Função de tela de lose.
+  if (life === 0) {
+    TELA = LOSE;
+  }
   if (TELA === GAME) {
     let direcaoX = mouseX - character.x;
     let direcaoY = mouseY - character.y;
@@ -80,6 +62,84 @@ function onGameClick() {
       velocidadeX: velocidadeX,
       velocidadeY: velocidadeY,
     };
+    throwing.play();
     bullets.push(bullet);
+  }
+}
+
+// Função de resetar o jogo.
+function resetSketch() {
+  // Verificador de Rublux para passar fase.
+  if (cash < 50) {
+    aceleration = 1.75;
+    verify = "Fase 1";
+  }
+  if (cash >= 50 && cash < 100) {
+    aceleration = 2.35;
+    fill("yellow");
+    verify = "Fase 2";
+  }
+  if (cash > 100 && cash <= 175) {
+    aceleration = 2.75;
+    fill("red");
+    verify = "Fase 3";
+  }
+  if (cash > 175 && cash < 250) {
+    aceleration = 3.0;
+    fill("purple");
+    verify = "Fase 4";
+  } else if (cash >= 250) {
+    // Verificador de finais.
+    if (win === false) {
+      TELA = VICTORY;
+      died.play();
+    } else if (win === true) {
+      win = false;
+      goingBack();
+    }
+  }
+
+  // Personagem aparecendo e se mechendo.
+  character.move();
+  character.display();
+
+  // Atualiza e imprime inimigos
+  for (var enemy of enemies) {
+    enemy.x += aceleration;
+    image(inimigo, enemy.x, enemy.y, 57, 57);
+    if (enemy.x > width) {
+      life--;
+      enemies.splice(enemies.indexOf(enemy), 1);
+      if (life === 0) {
+        TELA = LOSE;
+      }
+    }
+  }
+
+  // Colisão e vida dos inimigos
+  for (let enemy of enemies) {
+    // Para cada inimigo.
+    for (let bullet of bullets) {
+      // Cada bala atingida
+      if (
+        dist(enemy.x, enemy.y, bullet.x, bullet.y) < 47 &&
+        bullet.x > 0 &&
+        bullet.x < 640 &&
+        bullet.y > 0 &&
+        bullet.y < 480
+      ) {
+        enemies.splice(enemies.indexOf(enemy), 1);
+        bullets.splice(bullets.indexOf(bullet), 1);
+        for (let i = 0; i < 1; i++) {
+          let enemy = {
+            x: random(initial, 0),
+            y: random(40, 400),
+          };
+          died.play();
+          enemies.push(enemy);
+          cash += 1;
+        }
+      }
+    }
   }
 }

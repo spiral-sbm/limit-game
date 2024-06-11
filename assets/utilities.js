@@ -9,6 +9,7 @@ function buttonClick(X, Y, W, H, onClick) {
     onClick();
   }
 }
+// Função de desenhar o botão na tela.
 function drawButton(X, Y, W, H, color) {
   push();
   fill(color);
@@ -68,40 +69,10 @@ function drawReticle() {
   line(ivanPosX, ivanPosY, mouseX, mouseY);
 }
 
-// Função de tela de game over.
-function gameOver() {
-  push();
-  noStroke();
-  fill(BG);
-  rect(320, 240, 420, 220);
-
-  push();
-  textFont(myFont);
-  textAlign(CENTER);
-  textSize(50);
-  fill("white");
-  text("Faleceu...", 320, 200);
-  pop();
-
-  push();
-  textFont(prpg);
-  textSize(18);
-  fill(235);
-  let score = "Pontos totais: " + cash;
-  text(score, 240, 250);
-  drawButton(320, 320, 180, 30, "red");
-  fill("yellow");
-  text("reiniciar", 270, 325);
-  pop();
-  retry = true;
-
-  pop();
-  noLoop();
-}
-
-// Função de resetar o jogo.
-function reset() {
-  cash = 0;
-  retryValidate = true;
-  loop();
+// Função de recarregar a página.
+function goingBack() {
+  window.history.back();
+  setTimeout(() => {
+    window.location.reload();
+  }, 10);
 }
